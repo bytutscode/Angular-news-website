@@ -1,0 +1,20 @@
+section {
+    margin: auto;
+    max-width:1366px;
+    padding: 50px;
+    margin-bottom: 100px;
+}
+
+.articles-container {
+    display: flex;
+    justify-content: space-between;
+}
+h2 {
+    font-size:40px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    width: 90px;
+    margin: 20px auto;
+    border-bottom: 10px solid green;
+    margin-bottom: 50px;
+}

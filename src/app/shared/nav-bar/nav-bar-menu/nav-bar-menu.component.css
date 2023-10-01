@@ -1,0 +1,27 @@
+ul  {
+    display: flex;
+    gap: 25px;
+}
+ul > li {
+    position: relative;
+}
+
+ul > li::after {
+    content: '';
+    position: absolute;
+    background-color: green;
+    height:5px;
+    width: 0%;
+    left: 0;
+    bottom: -5px;
+    transition: all ease-in-out .6s;
+}
+
+ul > li > a {
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+ul > li.active::after {
+    width: 100%;
+}

@@ -1,0 +1,47 @@
+.small-card-container {
+    display: flex;
+    width: 650px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.small-card-container:hover img {
+    transform: scale(1.1);
+}
+
+.small-card-image {
+    width: 250px;
+    height: 150px;
+    min-width: 250px;
+    min-height: 150px;
+    overflow: hidden;
+}
+.small-card-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: all ease-in-out 1s;
+}
+
+.small-card-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+
+.date span {
+    color: #676767cf;
+   
+}
+
+.source {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.source span {
+    color: gray;
+}
