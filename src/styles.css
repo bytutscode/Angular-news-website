@@ -17,4 +17,6 @@
 
 body {
     background-color: #101010;
+    margin: auto;
+    max-width:1366px;
 }

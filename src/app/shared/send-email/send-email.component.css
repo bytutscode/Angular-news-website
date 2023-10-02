@@ -1,11 +1,14 @@
-.send-email-container {
+.send-email-sub-container{
+    padding: 5%;
+    margin: auto;
+}
+.send-email-sub-container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 5%;
+    
 }
 
-.send-email-container > * {
+.send-email-sub-container > * {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -25,7 +28,7 @@ h3 {
     color: #ccc;
     font-size: 17px;
 }
-.send-email-container input{
+.send-email-sub-container input{
     width:80%;
     height: 50px;
     border: none;
@@ -37,7 +40,7 @@ h3 {
     font-size: 18px;
 }
 
-.send-email-container button {
+.send-email-sub-container button {
     font-size: 18px;
     padding: 5px 15px;
     cursor: pointer;
@@ -46,12 +49,21 @@ h3 {
     border-radius: 20px;
   
 }
-.send-email-container button:hover{
+.send-email-sub-container button:hover{
     opacity: 0.95;
 }
 
-.send-email-container img {
+.send-email-sub-container img {
     width: 300px;
     height: 300px;
     border-radius: 50%;
+}
+
+
+/* MOBILE */
+@media (max-width:1250px) {
+   .send-email-sub-container{
+    flex-direction: column-reverse;
+    gap: 40px;
+   }
 }
