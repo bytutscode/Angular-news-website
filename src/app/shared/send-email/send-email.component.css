@@ -1,0 +1,57 @@
+.send-email-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5%;
+}
+
+.send-email-container > * {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.send-email-inside {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.send-email-inside p {
+    color: #ccc;
+    font-size: 17px;
+}
+.send-email-container input{
+    width:80%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.send-email-container button {
+    font-size: 18px;
+    padding: 5px 15px;
+    cursor: pointer;
+    width: 25%;
+    background-color: black;
+    border-radius: 20px;
+  
+}
+.send-email-container button:hover{
+    opacity: 0.95;
+}
+
+.send-email-container img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}

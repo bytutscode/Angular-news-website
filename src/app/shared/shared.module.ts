@@ -4,6 +4,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NavBarMenuComponent } from './nav-bar/nav-bar-menu/nav-bar-menu.component';
 import { NavBarSearchComponent } from './nav-bar/nav-bar-search/nav-bar-search.component';
 import { NavBarSocialsComponent } from './nav-bar/nav-bar-socials/nav-bar-socials.component';
+import { SendEmailComponent } from './send-email/send-email.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -12,13 +14,17 @@ import { NavBarSocialsComponent } from './nav-bar/nav-bar-socials/nav-bar-social
     NavBarComponent,
     NavBarMenuComponent,
     NavBarSearchComponent,
-    NavBarSocialsComponent
+    NavBarSocialsComponent,
+    SendEmailComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule
   ],
   exports:[
-    NavBarComponent
+    NavBarComponent,
+    SendEmailComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

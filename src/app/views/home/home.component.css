@@ -2,19 +2,31 @@ section {
     margin: auto;
     max-width:1366px;
     padding: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .articles-container {
     display: flex;
     justify-content: space-between;
 }
+.second{
+    flex-direction: row-reverse;
+}
 h2 {
     font-size:40px;
     padding-bottom: 5px;
     text-transform: uppercase;
-    width: 90px;
-    margin: 20px auto;
-    border-bottom: 10px solid green;
     margin-bottom: 50px;
+    position: relative;
+    display: block;
+}
+
+h2::after {
+    content: '';
+    height: 10px;
+    width: 100px;
+    background-color: var(--secondary-color);
+    display: block;
+    left: 0;
+    bottom:-10px;
 }

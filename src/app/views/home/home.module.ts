@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { MainCardComponent } from './main-card/main-card.component';
 import { SmallCardComponent } from './small-card/small-card.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -13,7 +14,8 @@ import { SmallCardComponent } from './small-card/small-card.component';
     SmallCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class HomeModule { }
