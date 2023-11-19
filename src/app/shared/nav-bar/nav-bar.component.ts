@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
+  menuOpen: boolean = false;
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }

@@ -1,0 +1,15 @@
+<div class="update-container">
+    <form>
+        <label for="">
+            Banner
+            <input (change)="onBannerSelected($event)" type="file" placeholder="Banner" name="image">
+        </label>
+        <label for="">
+            Profile photo
+            <input type="file" (change)="onPhotoSelected($event)" placeholder="profile photo" name="image">
+        </label>
+        <input type="text" [(ngModel)]="name" placeholder="name" name="name">
+
+        <button (click)="updateUser()">UPDATE</button>
+    </form>
+</div>

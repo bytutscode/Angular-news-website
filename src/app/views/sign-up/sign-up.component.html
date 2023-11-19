@@ -1,0 +1,14 @@
+<div class="form-container">
+    <h2>SignUp</h2>
+    <form >
+        <input [(ngModel)]="name" autocomplete="off" type="text" name="name" placeholder="Name">
+        <input [(ngModel)]="email" autocomplete="off" type="email" name="email" placeholder="Email">
+        <input [(ngModel)]="password" autocomplete="off" type="password" name="password" placeholder="Password">
+        <label for="terms">
+            <input type="checkbox" name="terms" id="terms">
+            Agree with terms
+        </label>
+        <span class="error">{{errorMsg}}</span>
+        <button (click)="signup()">create account</button>
+    </form>
+</div>

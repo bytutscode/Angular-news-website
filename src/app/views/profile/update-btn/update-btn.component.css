@@ -1,0 +1,18 @@
+button {
+    color: black;
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    font-size: 1rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+    border-radius: 7px;
+    margin: 20px;
+    margin-left: auto;
+    display: block;
+}
+
+button:hover {
+    opacity: 0.9;
+}

@@ -1,0 +1,7 @@
+<form class="form-container">
+    <h2>Sign-in</h2>
+    <input [(ngModel)]="email" autocomplete="off" type="email" name="email" placeholder="email">
+    <input [(ngModel)]="password" autocomplete="current-password" type="password"  name="password" placeholder="password">
+    <span class="error">{{errorMsg}}</span>
+    <button (click)="login()">Login</button>
+</form>

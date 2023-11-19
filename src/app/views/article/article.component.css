@@ -1,0 +1,28 @@
+.article-container article {
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.date span {
+    color: #ccc;
+}
+
+.article-image {
+    width: 100%;
+}
+
+.article-image img {
+    width: 100%;
+}
+
+.article-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.article-content p {
+    font-size: 17px;
+}

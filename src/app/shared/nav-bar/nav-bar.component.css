@@ -2,7 +2,95 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
+    overflow: hidden;
     padding: 5px 10px;
     height: 60px;
     border-bottom: 1px solid white;
+    transition: all ease-in-out .5s;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: #101010;
+}
+
+.mobile-btn-menu {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+}
+
+.mobile-btn-menu span {
+    display: flex;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    background-color: aliceblue;
+    transition: all ease-in-out .4s;
+}
+
+.actived {
+    height: 100vh;
+}
+
+
+.mobile-btn-menu span:nth-child(2) {
+    top: 14px;
+}
+
+.mobile-btn-menu span:nth-child(1) {
+    top: 7px;
+
+}
+
+.mobile-btn-menu span:nth-child(3) {
+    top: 21px;
+}
+
+.mobile-btn-menu.menuOpened span:nth-child(2) {
+    top: 14px;
+    opacity: 0;
+}
+
+.mobile-btn-menu.menuOpened span:nth-child(1) {
+    top: 7px;
+    transform: rotate(-45deg) translate(-5px, 5px);
+
+}
+
+.mobile-btn-menu.menuOpened span:nth-child(3) {
+    top: 21px;
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+@media (max-width:1250px) {
+    .nav-bar-container {
+        flex-direction: column;
+        justify-content: start;
+        gap: 15px;
+        padding-top: 10px;
+        padding-right: 70px;
+    }
+
+    .mobile-btn-menu {
+        display: flex;
+    }
+
+
+    app-nav-bar-menu,
+    app-nav-bar-socials,
+    app-nav-bar-search {
+        align-self: flex-start;
+        margin-left: 20px;
+    }
+
+    app-nav-bar-search {
+        order: -1;
+    }
+
 }

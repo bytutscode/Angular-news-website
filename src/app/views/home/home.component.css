@@ -15,11 +15,13 @@ section {
     display: flex;
     justify-content: space-between;
 }
-.second{
+
+.second {
     flex-direction: row-reverse;
 }
+
 h2 {
-    font-size:40px;
+    font-size: 40px;
     padding-bottom: 5px;
     text-transform: uppercase;
     margin-bottom: 50px;
@@ -34,7 +36,7 @@ h2::after {
     background-color: var(--secondary-color);
     display: block;
     left: 0;
-    bottom:-10px;
+    bottom: -10px;
 }
 
 
@@ -45,12 +47,18 @@ h2::after {
         flex-direction: column;
         margin: auto;
     }
+
+    section {
+        padding: 1rem;
+    }
+
     a {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    a > * {
+
+    a>* {
         margin: auto;
     }
 }

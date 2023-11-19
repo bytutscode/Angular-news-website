@@ -1,27 +1,39 @@
-ul  {
+ul {
     display: flex;
     gap: 25px;
 }
-ul > li {
+
+ul>li {
     position: relative;
 }
 
-ul > li::after {
+ul>li::after {
     content: '';
     position: absolute;
     background-color: green;
-    height:5px;
+    height: 5px;
     width: 0%;
     left: 0;
     bottom: -5px;
     transition: all ease-in-out .6s;
 }
 
-ul > li > a {
+ul>li>a {
     font-size: 17px;
     text-transform: uppercase;
 }
 
-ul > li.active::after {
+ul>li.active::after {
     width: 100%;
+}
+
+@media (max-width:1250px) {
+    ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    ul>li.active::after {
+        width: 0%;
+    }
 }
