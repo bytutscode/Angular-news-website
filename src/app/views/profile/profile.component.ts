@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
@@ -6,29 +6,21 @@ import { NewsService } from 'src/app/services/news.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
-  username = '';
-  bucketUrl : string = 'https://f004.backblazeb2.com/file/blogsBucket/';
-  photo : string = '';
-  banner : string = '';
-  posts: any= [];
+export class ProfileComponent implements OnChanges {
+  user: any = {}
+  posts: any = [];
 
-  constructor(private api: NewsService){
-    
-    api.getProfile().subscribe({
-      next:(res: any)=>{
-        this.photo =this.bucketUrl + res.body.profile_photo
-        this.banner =this.bucketUrl + res.body.banner_photo
-        this.username = res.body.name;
-      },
-      error:(err)=>{
-        console.log(err)
-      }
-    })
-     
-    api.getPost().subscribe(posts =>{
-      this.posts = posts.body;
-    })
+  constructor(private api: NewsService) {
+    this.getProfileInfo();
+    api.getPost().subscribe((res:any) =>(this.posts = res.body.posts));
   }
 
+  getProfileInfo(){
+    this.api.getProfile().subscribe((res) => this.user = res.body);
+  }
+
+  ngOnChanges(): void {
+      this.getProfileInfo();
+  }
+  
 }

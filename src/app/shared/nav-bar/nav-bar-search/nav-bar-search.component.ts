@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-nav-bar-search',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar-search.component.css']
 })
 export class NavBarSearchComponent {
+  input: string = '';
+  constructor(private router: Router, private api: NewsService){
 
+  }
+
+  search():void{
+    if(this.input === '') return;
+    this.api.search(this.input).subscribe(res => console.log(res));
+    this.router.navigateByUrl('/search?q=' + this.input);
+  }
 }

@@ -5,3 +5,14 @@ h2 {
     margin: auto;
     font-size: 2rem;
 }
+
+.no-content {
+    text-align: center;
+    font-size: 40px;
+}
+
+hr {
+    background-color: rgb(79, 79, 79);
+    height: 1px;
+    margin-bottom: 50px;
+}

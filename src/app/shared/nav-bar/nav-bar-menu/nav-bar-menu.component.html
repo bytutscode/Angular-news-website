@@ -1,8 +1,8 @@
 <nav>
     <ul>
-        <li class="active"><a href="">Home</a></li>
-        <li><a href="">Sports</a></li>
-        <li><a href="">Tech</a></li>
-        <li><a href="">Politics</a></li>
+        <li  [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['/']">Home</a></li>
+        <li [routerLinkActive]="'active'"><a  [routerLink]="['/category/sports']">Sports</a></li>
+        <li [routerLinkActive]="'active'"><a [routerLink]="['/category/tech']">Tech</a></li>
+        <li [routerLinkActive]="'active'"><a [routerLink]="['/category/politics']">Politics</a></li>
     </ul>
 </nav>

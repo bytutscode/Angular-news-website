@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticleComponent } from './article.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 
@@ -9,7 +10,8 @@ import { ArticleComponent } from './article.component';
     ArticleComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PipesModule
   ]
 })
 export class ArticleModule { }

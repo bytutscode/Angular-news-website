@@ -1,9 +1,39 @@
 .image-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-photo img{
     border-radius: 50%;
     overflow: hidden;
     width: 200px;
+    height: 200px;
+    object-fit: cover;
     margin: auto;
     margin-top: -100px;
     display: block;
     text-align: center;
+   
+}
+
+.update-action{
+   display: none; 
+}
+label span {
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+.update-action:hover {
+    position: absolute;
+    display:flex;
+    
+}
+.image-photo img:hover + .update-action{
+    position: absolute;
+    display:flex;
+}
+.hidden {
+    display: none;
 }

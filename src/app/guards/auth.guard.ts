@@ -9,6 +9,7 @@ export const authGuard: CanActivateFn = async (route, state) => {
 
   const router = inject(Router)
   const http = inject(HttpClient);
+
   return new Promise<boolean>((resolve, reject) => {
     const authorization = 'Bearer ' + localStorage.getItem('token');
     http.post('http://localhost:4000/verifytoken', null, { observe: 'response', headers: { authorization } })

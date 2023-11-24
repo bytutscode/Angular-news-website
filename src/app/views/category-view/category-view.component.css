@@ -1,0 +1,18 @@
+.category-view-conatiner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 25px;
+    gap: 30px;
+}
+
+app-main-card {
+    min-width: 500px;
+}
+
+@media (max-width:625px){
+    app-main-card {
+        min-width: 100%;
+        
+    }
+}

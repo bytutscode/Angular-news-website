@@ -1,0 +1,56 @@
+.create-post-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
+input {
+    padding: 5px;
+    font-size: 18px;
+    color: black;
+}
+
+input[type='file']{
+    color: white;
+}
+
+input, textarea {
+    width: 100%;
+    max-width: 500px;
+    color: black;
+}
+label {
+    cursor: pointer;
+}
+textarea {
+    font-size: 16px;
+    height: 200px;
+    padding: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    color: rgb(248, 248, 248);
+    padding: 8px 10px;
+    max-width: 250px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-weight: 300;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    text-transform: uppercase;
+    
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.error {
+    color: red;
+    padding: 20px;
+}

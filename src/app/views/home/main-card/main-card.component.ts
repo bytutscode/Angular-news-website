@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Post } from 'src/app/models/post';
+
 
 @Component({
   selector: 'app-main-card',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-card.component.css']
 })
 export class MainCardComponent {
-
+  @Input() post: Post | undefined;
 }

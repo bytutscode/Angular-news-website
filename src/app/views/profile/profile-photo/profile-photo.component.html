@@ -1,1 +1,13 @@
-<img src="{{profilePhoto}}" alt="" class="image-photo">
+<div class="image-photo">
+    <img src="{{profilePhoto | bucketURL}}" alt="" class="">
+    <div class="update-action">
+        <label for="update-input-profile">
+            <span class="material-symbols-outlined">
+                photo_camera
+            </span>
+        </label>
+        <input (change)="onPhotoSelected($event)" accept="image/png, image/jpeg, image/jpg" type="file" name="profilePhoto" id="update-input-profile" class="hidden">
+    </div>
+
+
+</div>

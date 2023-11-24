@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'app-small-card',
@@ -6,9 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./small-card.component.css']
 })
 export class SmallCardComponent {
-  @Input() id: string  = '';
-  @Input() photoUrl: string  = '';
-  @Input() title: string  = '';
-  @Input() source: string  = '';
-  @Input() date: string  = '';
+  @Input() post: Post | undefined;
 }

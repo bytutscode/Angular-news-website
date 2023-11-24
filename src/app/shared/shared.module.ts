@@ -6,6 +6,8 @@ import { NavBarSearchComponent } from './nav-bar/nav-bar-search/nav-bar-search.c
 import { NavBarSocialsComponent } from './nav-bar/nav-bar-socials/nav-bar-socials.component';
 import { SendEmailComponent } from './send-email/send-email.component';
 import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +21,9 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FormsModule,
   ],
   exports:[
     NavBarComponent,

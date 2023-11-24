@@ -7,6 +7,7 @@ import { HomeModule } from '../home/home.module';
 import { UpdateBtnComponent } from './update-btn/update-btn.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { FormsModule } from '@angular/forms';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HomeModule,
-    FormsModule
+    FormsModule,
+    PipesModule
   ]
 })
 export class ProfileModule { }

@@ -1,0 +1,12 @@
+<div class="create-post-container">
+    <label for="post-img">
+        <span class="material-symbols-outlined">
+            photo_camera
+        </span>
+    </label>
+        <input (change)="onImageSelected($event)" accept="image/png, image/jpeg, image/jpg" type="file" id="post-img" class="hidden">
+    <input type="text" [(ngModel)]="title" placeholder="title" name="title">
+    <textarea name="text" [(ngModel)]="text" placeholder="Content(text)" id="text"></textarea>
+    <span class="error">{{errorMsg}}</span>
+    <button (click)="createPost()">Create post</button>
+</div>

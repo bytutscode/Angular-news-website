@@ -67,8 +67,9 @@
     .main-card-container {
         margin: auto;
         width: 100%;
+        height: auto;
     }
     .main-card-image {
-        height: 500px;
+        height:200px;
     }
 }

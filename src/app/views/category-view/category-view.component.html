@@ -1,0 +1,6 @@
+<div class="category-view-conatiner">
+    <ng-container *ngFor="let post of articles">
+        <app-main-card [post]="post"></app-main-card>
+    </ng-container>
+</div>
+<app-show-more-btn *ngIf="btnStatus" (click)="getPosts()"></app-show-more-btn>

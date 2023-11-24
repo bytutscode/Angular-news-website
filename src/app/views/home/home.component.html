@@ -1,33 +1,36 @@
 <div class="home-container">
     <section>
         <div class="articles-container">
-            <app-main-card></app-main-card>
+
+            <app-main-card [post]="mainPostBigCard"></app-main-card>
+
             <aside>
-                <app-small-card></app-small-card>
-                <app-small-card></app-small-card>
-                <app-small-card></app-small-card>
+                <ng-container *ngFor="let post of mainPost">
+                    <app-small-card [post]="post">
+                    </app-small-card>
+                </ng-container>
             </aside>
         </div>
     </section>
     <section>
         <h2>Popular</h2>
         <div class="articles-container-two">
-            <app-small-card></app-small-card>
-            <app-small-card></app-small-card>
-            <app-small-card></app-small-card>
+            <ng-container *ngFor="let post of popular">
+                <app-small-card [post]="post"></app-small-card>
+            </ng-container>
         </div>
     </section>
     <section>
         <h2>Latest</h2>
         <div class="articles-container second">
-            <app-main-card></app-main-card>
+            <app-main-card [post]="latestBigCard"></app-main-card>
             <aside>
-                <app-small-card></app-small-card>
-                <app-small-card></app-small-card>
-                <app-small-card></app-small-card>
+                <ng-container *ngFor="let post of latest">
+                    <app-small-card [post]="post">
+                    </app-small-card>
+                </ng-container>
             </aside>
         </div>
     </section>
     <app-send-email></app-send-email>
 </div>
-

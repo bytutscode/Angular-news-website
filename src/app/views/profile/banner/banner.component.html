@@ -1,3 +1,11 @@
 <div class="banner-container">
-    <img src="{{banner}}" alt="" class="banner-imagem">
+    <img src="{{banner | bucketURL}}" alt="" class="banner-imagem">
+    <div class="update-action">
+        <label for="update-input">
+            <span class="material-symbols-outlined">
+                photo_camera
+            </span>
+        </label>
+        <input (change)="onBannerSelected($event)" accept="image/png, image/jpeg, image/jpg" type="file" name="banner" id="update-input" class="hidden">
+    </div>
 </div>

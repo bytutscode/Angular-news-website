@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { articles } from 'src/app/data/database';
+import { Post } from 'src/app/models/post';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
@@ -9,17 +9,12 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
-  id: any = 0;
-  article: any = {};
-  constructor(route: ActivatedRoute, news: NewsService) {
-    this.id = route.snapshot.paramMap.get('id');
-    this.article = articles.find(article => article.id == this.id);
-
-    // news.getData();
-    // news.login();
-    news.getPost();
-    console.log(news)
+  idParam: number = 0;
+  article: Post | undefined = undefined;
+  
+  constructor(route: ActivatedRoute, api: NewsService) {
+      this.idParam = Number(route.snapshot.paramMap.get('id'));
+      api.getPostById(this.idParam).subscribe({next:(res:any)=>{this.article = res.body;}});
   }
 
-  
 }

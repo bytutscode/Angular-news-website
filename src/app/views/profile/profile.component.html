@@ -1,19 +1,14 @@
-<app-banner [banner]="banner"></app-banner>
-<app-profile-photo [profilePhoto]="photo"></app-profile-photo>
-<h2>{{username}}</h2>
+<app-banner [banner]="user?.banner_photo"></app-banner>
+<app-profile-photo [profilePhoto]="user?.profile_photo"></app-profile-photo>
+<h2>{{user?.name}}</h2>
 <app-update-btn></app-update-btn>
+<hr>
 <ng-container *ngIf="posts.length > 0; else none">
     <ng-container *ngFor="let post of posts">
-        <app-small-card
-            [photoUrl]="post.photo"
-            [title]="post.title"
-            [id]="post.id"
-            [date]="post.date"
-            [source]="'alguma fonte'"
-        >
-        </app-small-card>
+        <app-small-card [post]="post"></app-small-card>
     </ng-container>
 </ng-container>
 <ng-template #none>
-    <h4>The user has no content to show</h4>
+
+    <h4 class="no-content">The user has no posts</h4>
 </ng-template>

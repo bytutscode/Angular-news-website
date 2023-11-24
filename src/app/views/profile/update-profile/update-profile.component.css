@@ -1,7 +1,9 @@
 label {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 20px;
     border-bottom: 1px solid gray;
+    gap: 20px;
 }
 
 input {
@@ -13,8 +15,6 @@ input {
     max-width: 400px;
     display: block;
     color: black;
-    margin: auto;
-    margin-top: 20px;
 }
 
 button {
@@ -26,5 +26,15 @@ button {
     font-weight: 300;
     background-color: var(--secondary-color);
     display: block;
-    margin: 20px auto;
+    margin: 20px ;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.error {
+    color: red;
+    padding: 20px;
 }

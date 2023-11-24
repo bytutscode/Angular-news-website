@@ -1,8 +1,8 @@
 <header>
     <div class="nav-bar-container" [ngClass]="menuOpen?'actived':''">
-        <app-nav-bar-menu></app-nav-bar-menu>
+        <app-nav-bar-menu (click)="toggleMenu()"></app-nav-bar-menu>
         <app-nav-bar-search></app-nav-bar-search>
-        <app-nav-bar-socials></app-nav-bar-socials>
+        <app-nav-bar-socials (click)="toggleMenu()"></app-nav-bar-socials>
         <div (click)="toggleMenu()" [ngClass]="menuOpen?'menuOpened':''" class="mobile-btn-menu">
             <span></span>
             <span></span>

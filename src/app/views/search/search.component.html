@@ -1,0 +1,6 @@
+<div class="search-container">
+    <div class="search-options">
+        <button (click)="type = 'posts';search()" [ngClass]="type == 'posts'?'active':null">Posts</button>
+        <button (click)="type = 'users';search()" [ngClass]="type == 'users'?'active':null">Users</button>
+    </div>
+</div>
