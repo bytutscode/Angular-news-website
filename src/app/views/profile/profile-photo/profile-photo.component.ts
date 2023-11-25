@@ -24,7 +24,7 @@ export class ProfilePhotoComponent {
   }
 
   reload(){
-    this.router.navigateByUrl('/',{skipLocationChange:true}).then(res=>{
+    this.router.navigateByUrl('/loading',{skipLocationChange:true}).then(res=>{
       this.router.navigate(['profile'])
     })
   }

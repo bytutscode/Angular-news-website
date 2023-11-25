@@ -29,15 +29,15 @@ export class NewsService implements OnInit {
       { observe: 'response' })
   }
 
-  getProfile() {
-    return this.http.get(`${this.baseUrl}user/${this.selfUser.id}`, { observe: 'response', headers: { authorization: this.authorization } })
+  getProfile(id?: string | number) {
+    return this.http.get(`${this.baseUrl}user/${id ? id : this.selfUser.id}`, { observe: 'response', headers: { authorization: this.authorization } })
   }
 
   getPostById(id: string | number) {
     return this.http.get(`${this.baseUrl}post/${id}`, { observe: 'response', headers: { authorization: this.authorization } })
   }
-  getPost() {
-    return this.http.get(`${this.baseUrl}post?userID=${this.selfUser.id}`, { observe: 'response', headers: { authorization: this.authorization } })
+  getPost(id: string | number) {
+    return this.http.get(`${this.baseUrl}post?userID=${id}`, { observe: 'response', headers: { authorization: this.authorization } })
   }
   getPostMain() {
     return this.http.get(`${this.baseUrl}post/home`, { observe: 'response', headers: { authorization: this.authorization } })
@@ -66,8 +66,10 @@ export class NewsService implements OnInit {
       { observe: 'response', headers: { authorization: this.authorization } });
   }
 
-  search(input: string, type?: string) {
-    return this.http.get(`${this.baseUrl}search?input=${input}${type ? `&type=${type}` : ''}`,
+  search(input: string, type?: string, pag?: number) {
+    const query = `?input=${input}${type ? `&type=${type}` : ''}${pag ? `&pag=${pag}` : ''}`;
+
+    return this.http.get(`${this.baseUrl}search${query}`,
       { observe: 'response', headers: { authorization: this.authorization } });
   }
 

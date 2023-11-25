@@ -8,6 +8,9 @@ import { SendEmailComponent } from './send-email/send-email.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { LoaderAnimationComponent } from './loader-animation/loader-animation.component';
+import { UserCardComponent } from './user-card/user-card.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -18,17 +21,21 @@ import { FormsModule } from '@angular/forms';
     NavBarSearchComponent,
     NavBarSocialsComponent,
     SendEmailComponent,
-    FooterComponent
+    FooterComponent,
+    LoaderAnimationComponent,
+    UserCardComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
+    PipesModule
   ],
   exports:[
     NavBarComponent,
     SendEmailComponent,
-    FooterComponent
+    FooterComponent,
+    UserCardComponent
   ]
 })
 export class SharedModule { }

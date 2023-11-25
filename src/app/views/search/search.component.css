@@ -1,6 +1,4 @@
-.search-container {
-    
-}
+
 .search-options{
     display: flex;
     gap: 7px;
@@ -19,10 +17,20 @@ button {
     cursor: pointer;
 }
 
+.results-container {
+    padding: 20px;
+}
+
 button:hover {
     opacity: 0.9;
 }
 
 button.active {
     background-color: var(--secondary-color);
+}
+
+.notFound {
+    padding: 20px;
+    text-align: center;
+
 }

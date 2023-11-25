@@ -15,7 +15,9 @@ export class NavBarSearchComponent {
 
   search():void{
     if(this.input === '') return;
-    this.api.search(this.input).subscribe(res => console.log(res));
-    this.router.navigateByUrl('/search?q=' + this.input);
+
+    this.router.navigate(['/loading']).then(()=>{
+      this.router.navigateByUrl('/search?q=' + this.input);
+    }); 
   }
 }

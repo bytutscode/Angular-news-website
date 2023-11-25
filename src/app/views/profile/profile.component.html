@@ -1,14 +1,20 @@
-<app-banner [banner]="user?.banner_photo"></app-banner>
-<app-profile-photo [profilePhoto]="user?.profile_photo"></app-profile-photo>
-<h2>{{user?.name}}</h2>
-<app-update-btn></app-update-btn>
-<hr>
-<ng-container *ngIf="posts.length > 0; else none">
-    <ng-container *ngFor="let post of posts">
-        <app-small-card [post]="post"></app-small-card>
+<div class="profile-container" *ngIf="user.id else notFound">
+    <app-banner [banner]="user?.banner_photo"></app-banner>
+    <app-profile-photo [profilePhoto]="user?.profile_photo"></app-profile-photo>
+    <h2>{{user?.name}}</h2>
+    <app-update-btn></app-update-btn>
+    <hr>
+    <ng-container *ngIf="posts.length > 0; else none">
+        <ng-container *ngFor="let post of posts">
+            <app-small-card [post]="post"></app-small-card>
+        </ng-container>
     </ng-container>
-</ng-container>
-<ng-template #none>
+    <ng-template #none>
 
-    <h4 class="no-content">The user has no posts</h4>
+        <h4 class="no-content">The user has no posts</h4>
+    </ng-template>
+</div>
+
+<ng-template #notFound>
+    <h4 class="no-content">User not found</h4>
 </ng-template>

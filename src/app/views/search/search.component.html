@@ -1,6 +1,18 @@
 <div class="search-container">
     <div class="search-options">
-        <button (click)="type = 'posts';search()" [ngClass]="type == 'posts'?'active':null">Posts</button>
-        <button (click)="type = 'users';search()" [ngClass]="type == 'users'?'active':null">Users</button>
+        <button (click)="type = 'posts'; clear() ;search()" [ngClass]="type == 'posts'?'active':null">Posts</button>
+        <button (click)="type = 'users'; clear() ;search()" [ngClass]="type == 'users'?'active':null">Users</button>
     </div>
+    <div class="results-container" *ngIf="results.length > 0 else notFound">
+        <ng-container *ngFor="let result of results">
+            <app-small-card *ngIf="type === 'posts' else users" [post]="result"></app-small-card>
+            <ng-template #users>
+                <app-user-card [user]="result"></app-user-card>
+            </ng-template>
+        </ng-container>
+    </div>
+
+    <ng-template #notFound>
+        <h2 class="notFound">We do not found any {{type.slice(0,-1)}} that matches with what you're looking for :(</h2>
+    </ng-template>
 </div>

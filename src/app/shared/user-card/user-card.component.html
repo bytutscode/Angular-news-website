@@ -1,0 +1,8 @@
+<a [routerLink]="['/profile',user.id]">
+    <div class="user-card-container">
+        <div class="user-card-profile-photo">
+            <img src="{{user.profile_photo | bucketURL}}" alt="">
+        </div>
+        <h2>{{user.name}}</h2>
+    </div>
+</a>

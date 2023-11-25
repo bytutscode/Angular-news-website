@@ -10,6 +10,7 @@ import { UpdateProfileComponent } from './views/profile/update-profile/update-pr
 import { CreatePostComponent } from './views/create-post/create-post.component';
 import { CategoryViewComponent } from './views/category-view/category-view.component';
 import { SearchComponent } from './views/search/search.component';
+import { LoaderAnimationComponent } from './shared/loader-animation/loader-animation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,8 +20,10 @@ const routes: Routes = [
   { path: 'article/:id', component: ArticleComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
   { path: 'profile/update', component: UpdateProfileComponent, canActivate: [authGuard] },
+  { path: 'profile/:id', component: ProfileComponent, canActivate: [authGuard] },
   { path: 'category/:category', component: CategoryViewComponent},
   { path: 'search', component: SearchComponent},
+  { path: 'loading', component: LoaderAnimationComponent},
 
 ];
 
