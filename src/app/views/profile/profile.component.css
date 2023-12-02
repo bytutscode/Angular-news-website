@@ -4,9 +4,11 @@ h2 {
     text-align: center;
     margin: auto;
     font-size: 2rem;
+    padding: 20px;
 }
 
 .no-content {
+    padding: 30px;
     text-align: center;
     font-size: 40px;
 }

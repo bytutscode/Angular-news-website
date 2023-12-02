@@ -9,15 +9,12 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class NavBarSearchComponent {
   input: string = '';
-  constructor(private router: Router, private api: NewsService){
+  constructor(private router: Router, private api: NewsService) {
 
   }
 
-  search():void{
-    if(this.input === '') return;
-
-    this.router.navigate(['/loading']).then(()=>{
-      this.router.navigateByUrl('/search?q=' + this.input);
-    }); 
+  search(): void {
+    if (this.input === '') return;
+    this.router.navigateByUrl('/search?q=' + this.input);
   }
 }

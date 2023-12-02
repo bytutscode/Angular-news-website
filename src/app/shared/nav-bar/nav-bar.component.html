@@ -8,5 +8,15 @@
             <span></span>
             <span></span>
         </div>
+        <div *ngIf="!isLogged else logged" class="buttons-container" (click)="closeMenu()">
+            <button [routerLink]="['signin']">Sign-in</button>
+            <button [routerLink]="['signup']">Sign-up</button>
+        </div>
+        <ng-template #logged>
+            <div class="buttons-container" (click)="closeMenu()">
+                <button [routerLink]="['profile']">Profile</button>
+                <button (click)="logout()">Logout</button>
+            </div>
+        </ng-template>
     </div>
 </header>

@@ -1,1 +1,1 @@
-<button (click)="update()" >Update profile</button>
+<button [ngClass]="myProfile? 'update-action':'hidden'" (click)="update()">Update profile</button>

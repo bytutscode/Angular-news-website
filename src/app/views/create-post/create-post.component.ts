@@ -13,32 +13,37 @@ export class CreatePostComponent {
   errorMsg: string = '';
   form: FormData = new FormData();
 
-  constructor(private router: Router, private api:NewsService){
+  constructor(private router: Router, private api: NewsService) {
 
   }
-  onImageSelected(event: any){
+  onImageSelected(event: any) {
     const file: File = event.target.files[0];
     const postImgForm = new FormData();
     postImgForm.set('image', file);
     this.form = postImgForm;
   }
 
-  
 
-  createPost(){
-    this.form.set('title',this.title);
-    this.form.set('content',this.text);
-    this.form.set('category_id','1');
+
+  createPost() {
+
+    this.form.set('title', this.title);
+    this.form.set('content', this.text);
+    this.form.set('category_id', '1');
 
     this.api.createPost(this.form).subscribe({
-      next:(value)=> {
-          this.title = '';
-          this.text = '';
-          this.router.navigate(['profile'])
+      next: (value) => {
+        this.title = '';
+        this.text = '';
+        this.router.navigate(['profile'])
       },
-      error:(err)=> {
-          this.errorMsg = err.error.message;
+      error: (err) => {
+        this.errorMsg = err.error.message;
       },
     })
+  }
+
+
+  show() {
   }
 }

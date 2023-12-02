@@ -7,16 +7,19 @@ import { NewsService } from 'src/app/services/news.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent{
+export class ProfileComponent {
   user: any = {}
   posts: any = [];
   userID: string | null;
+  myProfile: boolean;
   userStoraged = JSON.parse(localStorage.getItem('user') as string);
 
   constructor(private api: NewsService, private route: ActivatedRoute) {
     this.userID = this.route.snapshot.paramMap.get('id');
     this.userID ? this.getProfileInfo(this.userID) : this.getProfileInfo(this.userStoraged.id);
     this.userID ? this.getPosts(this.userID) : this.getPosts(this.userStoraged.id);
+
+    this.myProfile = !(!!this.route.snapshot.paramMap.get('id')) || this.userStoraged.id == this.route.snapshot.paramMap.get('id');
   }
 
   getProfileInfo(id: number | string) {

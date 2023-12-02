@@ -20,10 +20,10 @@ const routes: Routes = [
   { path: 'article/:id', component: ArticleComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
   { path: 'profile/update', component: UpdateProfileComponent, canActivate: [authGuard] },
-  { path: 'profile/:id', component: ProfileComponent, canActivate: [authGuard] },
-  { path: 'category/:category', component: CategoryViewComponent},
-  { path: 'search', component: SearchComponent},
-  { path: 'loading', component: LoaderAnimationComponent},
+  { path: 'profile/:id', component: ProfileComponent },
+  { path: 'category/:category', component: CategoryViewComponent },
+  { path: 'search', component: SearchComponent },
+  { path: 'loading', component: LoaderAnimationComponent },
 
 ];
 

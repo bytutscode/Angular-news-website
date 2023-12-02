@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +8,19 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
   menuOpen: boolean = false;
+  isLogged: boolean = false;
 
-  closeMenu(){
-      this.menuOpen = false;
+  constructor(private router: Router) {
+    this.isLogged = !!localStorage.getItem('user');
+  }
+
+  logout() {
+    localStorage.clear();
+    window.location.reload();
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
   }
 
   toggleMenu() {

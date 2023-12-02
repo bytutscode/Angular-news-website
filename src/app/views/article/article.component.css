@@ -1,8 +1,10 @@
 .article-container article {
     padding: 50px 20px;
+    max-width: 1000px;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .date span {
@@ -20,7 +22,7 @@
 .article-content {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 }
 
 .article-content p {

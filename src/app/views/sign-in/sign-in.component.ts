@@ -19,7 +19,7 @@ export class SignInComponent {
       next: (res: any) => {
         res.body.token ? localStorage.setItem('token', res.body.token) : null;
         res.body.user ? localStorage.setItem('user', JSON.stringify(res.body.user)) : null;
-        this.router.navigate(['']);
+        window.location.reload();
       },
 
       error: (err) => {

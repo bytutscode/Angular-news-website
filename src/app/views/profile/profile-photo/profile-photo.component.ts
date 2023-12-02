@@ -9,7 +9,7 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class ProfilePhotoComponent {
   @Input() profilePhoto: string = '';
-
+  @Input() myProfile: boolean = false;
   constructor(private api: NewsService, private router: Router) {
 
   }
@@ -19,12 +19,14 @@ export class ProfilePhotoComponent {
     const profilePhotoForm = new FormData();
     profilePhotoForm.append('avatar', file);
 
-    this.api.updateProfilePhoto(profilePhotoForm).subscribe({next: () => this.reload(),
-    error: (err) => {alert(err.error.message);}});
+    this.api.updateProfilePhoto(profilePhotoForm).subscribe({
+      next: () => this.reload(),
+      error: (err) => { alert(err.error.message); }
+    });
   }
 
-  reload(){
-    this.router.navigateByUrl('/loading',{skipLocationChange:true}).then(res=>{
+  reload() {
+    this.router.navigateByUrl('/loading', { skipLocationChange: true }).then(res => {
       this.router.navigate(['profile'])
     })
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,13 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-btn.component.css']
 })
 export class UpdateBtnComponent {
-  constructor(private router:Router){
+  @Input() myProfile: boolean = false;
+  constructor(private router: Router) {
 
   }
 
-  update(){
-    console.log('foi');
-    
+  update() {
     this.router.navigate(['profile/update']);
   }
 }

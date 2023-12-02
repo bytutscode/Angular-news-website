@@ -10,8 +10,9 @@
             <h1>{{article.title}}</h1>
         </div>
         <div class="article-content">
-            <p>{{article.content}}</p>
-
+            <ng-container *ngFor="let line of article.content.split('\n')">
+                <p>{{line}}</p>
+            </ng-container>
         </div>
     </article>
 </div>

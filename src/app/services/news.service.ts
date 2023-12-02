@@ -30,17 +30,17 @@ export class NewsService implements OnInit {
   }
 
   getProfile(id?: string | number) {
-    return this.http.get(`${this.baseUrl}user/${id ? id : this.selfUser.id}`, { observe: 'response', headers: { authorization: this.authorization } })
+    return this.http.get(`${this.baseUrl}user/${id ? id : this.selfUser.id}`, { observe: 'response' })
   }
 
   getPostById(id: string | number) {
-    return this.http.get(`${this.baseUrl}post/${id}`, { observe: 'response', headers: { authorization: this.authorization } })
+    return this.http.get(`${this.baseUrl}post/${id}`, { observe: 'response' })
   }
   getPost(id: string | number) {
-    return this.http.get(`${this.baseUrl}post?userID=${id}`, { observe: 'response', headers: { authorization: this.authorization } })
+    return this.http.get(`${this.baseUrl}post?userID=${id}`, { observe: 'response' })
   }
   getPostMain() {
-    return this.http.get(`${this.baseUrl}post/home`, { observe: 'response', headers: { authorization: this.authorization } })
+    return this.http.get(`${this.baseUrl}post/home`, { observe: 'response' })
   }
 
   updateProfilePhoto(body: object) {
@@ -63,14 +63,14 @@ export class NewsService implements OnInit {
 
   getPostsByCategory(category: string, pag: number) {
     return this.http.get(`${this.baseUrl}post?category=${findCategoryIdByName(category)}&pag=${pag}`,
-      { observe: 'response', headers: { authorization: this.authorization } });
+      { observe: 'response' });
   }
 
   search(input: string, type?: string, pag?: number) {
     const query = `?input=${input}${type ? `&type=${type}` : ''}${pag ? `&pag=${pag}` : ''}`;
 
     return this.http.get(`${this.baseUrl}search${query}`,
-      { observe: 'response', headers: { authorization: this.authorization } });
+      { observe: 'response' });
   }
 
 
