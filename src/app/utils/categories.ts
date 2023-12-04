@@ -4,11 +4,10 @@ interface Category {
 }
 
 const categories: Category[] = [
-    { category_id: 1, category: 'carros' },
-    { category_id: 2, category: 'politica' },
-    { category_id: 3, category: 'woman' },
-    { category_id: 4, category: 'test' },
-    { category_id: 5, category: 'money' },
+    { category_id: 1, category: 'sports' },
+    { category_id: 2, category: 'tech' },
+    { category_id: 3, category: 'politics' },
+    { category_id: 4, category: 'others' },
 ]
 
 export const findCategoryIdByName = (categoryName: string): number | undefined => {

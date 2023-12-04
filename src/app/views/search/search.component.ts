@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, DoCheck, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from 'src/app/services/news.service';
 
@@ -7,15 +7,22 @@ import { NewsService } from 'src/app/services/news.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
+export class SearchComponent implements DoCheck {
   input: string = '';
   type: string = 'posts';
-  results : any[] = [];
+  results: any[] = [];
   pag: number = 1;
 
-  constructor(private api: NewsService, private route: ActivatedRoute, private router: Router){
+  constructor(private api: NewsService, private route: ActivatedRoute, private router: Router) {
     this.input = route.snapshot.queryParamMap.get('q') as string;
     this.search();
+  }
+
+  ngDoCheck(): void {
+    if (this.input != this.route.snapshot.queryParamMap.get('q')) {
+      this.clear()
+      this.search()
+    }
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -31,18 +38,18 @@ export class SearchComponent {
     }
   }
 
-  clear(){
+  clear() {
     this.results = [];
     this.pag = 1;
   }
- 
-  search(pag?:number):any {
-      if(this.input === '') return
-      
-      this.input = this.route.snapshot.queryParamMap.get('q') as string;
 
-      this.api.search(this.input,this.type,pag).subscribe({
-      next:(res:any)=>this.results.push(...res.body.results)})
-      
+  search(pag?: number): any {
+    if (this.input === '') return
+
+    this.input = this.route.snapshot.queryParamMap.get('q') as string;
+
+    this.api.search(this.input, this.type, pag).subscribe({
+      next: (res: any) => this.results.push(...res.body.results)
+    })
   }
 }

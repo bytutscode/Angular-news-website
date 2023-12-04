@@ -1,15 +1,27 @@
-<a [routerLink]="['/article',post.id]" *ngIf="post">
-    <article class="small-card-container">
-        <div class="small-card-image">
-            <img src="{{post.image | bucketURL}}" alt="">
-        </div>
-        <div class="small-card-right">
-            <div class="date">
-                <span>{{post.date | formatDate}}</span>
+<div *ngIf="visible" class="container">
+    <a [routerLink]="['/article',post.id]" *ngIf="post">
+        <article class="small-card-container">
+            <div class="small-card-image">
+                <img src="{{post.image | bucketURL}}" alt="">
             </div>
-            <div class="small-card-title">
-                <h2>{{post.title}}</h2>
+            <div class="small-card-right">
+                <div class="date">
+                    <span>{{post.date | formatDate}}</span>
+                </div>
+                <div class="small-card-title">
+                    <h2>{{post.title}}</h2>
+                </div>
             </div>
-        </div>
-    </article>
-</a>
+
+
+        </article>
+    </a>
+    <div (click)="toggleOptions()" class="options-container" [ngClass]="showOption?'active':''" *ngIf="myProfile">
+        <span class="material-symbols-outlined">
+            more_vert
+        </span>
+        <ul class="options">
+            <li *ngIf="post" (click)="deletePost(post.id)">Delete this post</li>
+        </ul>
+    </div>
+</div>

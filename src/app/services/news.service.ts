@@ -74,4 +74,10 @@ export class NewsService implements OnInit {
   }
 
 
+  deletePostById(id: string | number) {
+    return this.http.delete(`${this.baseUrl}post/${id}`,
+      { observe: 'response', headers: { authorization: this.authorization } });
+  }
+
+
 }

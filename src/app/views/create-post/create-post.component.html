@@ -1,13 +1,26 @@
 <div class="create-post-container">
+    <img src="{{postImgLocale}}" alt="">
     <label for="post-img">
         <span class="material-symbols-outlined">
             photo_camera
         </span>
     </label>
+    <div class="category-container">
+        <label for="category">Category: </label>
+        <select name="category" id="category" [(ngModel)]="categoryId">
+            <option value="1">Sports</option>
+            <option value="2">Tech</option>
+            <option value="3">Politics</option>
+            <option value="4">others</option>
+        </select>
+    </div>
     <input (change)="onImageSelected($event)" accept="image/png, image/jpeg, image/jpg" type="file" id="post-img"
         class="hidden">
     <input type="text" [(ngModel)]="title" placeholder="title" name="title">
-    <textarea (change)="show()" name="text" [(ngModel)]="text" placeholder="Content(text)" id="text"></textarea>
+    <textarea name="text" [(ngModel)]="text" placeholder="Content(text)" id="text"></textarea>
     <span class="error">{{errorMsg}}</span>
-    <button (click)="createPost()">Create post</button>
+    <button class="" (click)="createPost()">
+        <div class="loader" *ngIf="loading else create"></div>
+        <ng-template #create>Create post</ng-template>
+    </button>
 </div>

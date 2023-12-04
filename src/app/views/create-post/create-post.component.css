@@ -4,24 +4,29 @@
     gap: 20px;
     padding: 30px;
 }
+
 input {
     padding: 5px;
     font-size: 18px;
     color: black;
 }
 
-input[type='file']{
+input[type='file'] {
     color: white;
 }
 
-input, textarea {
+input,
+textarea,
+img {
     width: 100%;
     max-width: 500px;
     color: black;
 }
+
 label {
     cursor: pointer;
 }
+
 textarea {
     font-size: 16px;
     height: 200px;
@@ -32,9 +37,29 @@ textarea {
     display: none;
 }
 
+.category-container {
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+select {
+    flex: 1;
+    max-width: 500px;
+    color: black;
+    padding: 10px;
+}
+
+select option {
+    color: black;
+    width: 100%;
+}
+
 button {
     color: rgb(248, 248, 248);
     padding: 8px 10px;
+    height: 40px;
     max-width: 250px;
     border: none;
     outline: none;
@@ -43,7 +68,6 @@ button {
     background-color: var(--secondary-color);
     cursor: pointer;
     text-transform: uppercase;
-    
 }
 
 button:active {

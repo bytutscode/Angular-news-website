@@ -11,7 +11,7 @@ export class ProfileComponent {
   user: any = {}
   posts: any = [];
   userID: string | null;
-  myProfile: boolean;
+  myProfile: boolean = true;
   userStoraged = JSON.parse(localStorage.getItem('user') as string);
 
   constructor(private api: NewsService, private route: ActivatedRoute) {
@@ -19,7 +19,12 @@ export class ProfileComponent {
     this.userID ? this.getProfileInfo(this.userID) : this.getProfileInfo(this.userStoraged.id);
     this.userID ? this.getPosts(this.userID) : this.getPosts(this.userStoraged.id);
 
-    this.myProfile = !(!!this.route.snapshot.paramMap.get('id')) || this.userStoraged.id == this.route.snapshot.paramMap.get('id');
+    if (!this.userStoraged) {
+      this.myProfile = false;
+    } else if (this.userID && this.userStoraged.id != this.userID) {
+      this.myProfile = false;
+    }
+
   }
 
   getProfileInfo(id: number | string) {

@@ -16,7 +16,7 @@ export class NavBarComponent {
 
   logout() {
     localStorage.clear();
-    window.location.reload();
+    this.router.navigate(['']).then(() => { window.location.reload() })
   }
 
   closeMenu() {

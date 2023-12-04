@@ -10,8 +10,12 @@ import { NewsService } from 'src/app/services/news.service';
 export class CreatePostComponent {
   title: string = '';
   text: string = '';
+  categoryId: string = '4';
   errorMsg: string = '';
   form: FormData = new FormData();
+  postImgLocale = '';
+
+  loading: boolean = false;
 
   constructor(private router: Router, private api: NewsService) {
 
@@ -21,15 +25,16 @@ export class CreatePostComponent {
     const postImgForm = new FormData();
     postImgForm.set('image', file);
     this.form = postImgForm;
+    this.showImg(file);
   }
 
 
 
   createPost() {
-
+    this.loading = true;
     this.form.set('title', this.title);
     this.form.set('content', this.text);
-    this.form.set('category_id', '1');
+    this.form.set('category_id', this.categoryId);
 
     this.api.createPost(this.form).subscribe({
       next: (value) => {
@@ -38,12 +43,14 @@ export class CreatePostComponent {
         this.router.navigate(['profile'])
       },
       error: (err) => {
+        this.loading = false;
         this.errorMsg = err.error.message;
       },
     })
   }
 
 
-  show() {
+  showImg(img: any) {
+    this.postImgLocale = URL.createObjectURL(img);
   }
 }

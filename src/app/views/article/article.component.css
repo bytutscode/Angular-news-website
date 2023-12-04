@@ -25,6 +25,10 @@
     gap: 5px;
 }
 
+.article-title h1 {
+    font-size: 35px;
+}
+
 .article-content p {
-    font-size: 17px;
+    font-size: 21px;
 }

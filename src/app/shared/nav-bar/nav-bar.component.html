@@ -14,8 +14,21 @@
         </div>
         <ng-template #logged>
             <div class="buttons-container" (click)="closeMenu()">
-                <button [routerLink]="['profile']">Profile</button>
-                <button (click)="logout()">Logout</button>
+                <button title="create post" [routerLink]="['create']">
+                    <span class="material-symbols-outlined">
+                        post_add
+                    </span>
+                </button>
+                <button title="profile" [routerLink]="['profile']">
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                </button>
+                <button title="logout" (click)="logout()">
+                    <span class="material-symbols-outlined">
+                        logout
+                    </span>
+                </button>
             </div>
         </ng-template>
     </div>
