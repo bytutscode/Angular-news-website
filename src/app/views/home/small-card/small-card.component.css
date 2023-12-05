@@ -73,15 +73,19 @@ h2 {
     top: 5px;
     right: 10px;
     z-index: 100;
+    cursor: pointer;
 }
 
 .options-container.active .options {
     display: flex;
+    position: absolute;
+    top: 30px;
+    z-index: 999;
+    width: 200px;
+    right: 0px;
 }
 
-.options-container.active span {
-    display: none;
-}
+
 
 .options {
     padding: 0;
