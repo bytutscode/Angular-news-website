@@ -1,3 +1,3 @@
-# News
+#Blogs
 
-### this is a project made with Angular.
+### THE DOCUMENTATION IS NOT READY YET, BUT I AM WORKING ON IT
