@@ -7,7 +7,7 @@ import { findCategoryIdByName } from '../utils/categories';
   providedIn: 'root'
 })
 export class NewsService implements OnInit {
-  private baseUrl = 'https://node-angular-blogs-bytutscode.vercel.app/';
+  private baseUrl = 'https://node-angular-blogs.vercel.app/';
   private authorization = 'Bearer ' + localStorage.getItem('token');
   private selfUser = JSON.parse(localStorage.getItem('user') as string);
   constructor(private http: HttpClient) {
