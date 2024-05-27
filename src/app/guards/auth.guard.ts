@@ -12,7 +12,8 @@ export const authGuard: CanActivateFn = async (route, state) => {
 
   return new Promise<boolean>((resolve, reject) => {
     const authorization = 'Bearer ' + localStorage.getItem('token');
-    http.post('https://node-angular-blogs-bytutscode.vercel.app/verifytoken', null, { observe: 'response', headers: { authorization } })
+    const url = 'https://node-angular-blogs.vercel.app/verifytoken';
+    http.post(url, null, { observe: 'response', headers: { authorization } })
       .subscribe({
         next: (res) => {
           resolve(true);
