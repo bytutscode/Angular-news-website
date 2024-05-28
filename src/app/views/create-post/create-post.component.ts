@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnDestroy } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.css']
+  styleUrls: ['./create-post.component.css'],
+  standalone:true,
+  imports:[FormsModule,CommonModule]
 })
-export class CreatePostComponent {
+export class CreatePostComponent implements OnDestroy {
   title: string = '';
   text: string = '';
   categoryId: string = '4';
@@ -16,6 +21,7 @@ export class CreatePostComponent {
   postImgLocale = '';
 
   loading: boolean = false;
+  subscription: Subscription = new Subscription;
 
   constructor(private router: Router, private api: NewsService) {
 
@@ -36,7 +42,7 @@ export class CreatePostComponent {
     this.form.set('content', this.text);
     this.form.set('category_id', this.categoryId);
 
-    this.api.createPost(this.form).subscribe({
+    this.subscription = this.api.createPost(this.form).subscribe({
       next: (value) => {
         this.title = '';
         this.text = '';
@@ -52,5 +58,9 @@ export class CreatePostComponent {
 
   showImg(img: any) {
     this.postImgLocale = URL.createObjectURL(img);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

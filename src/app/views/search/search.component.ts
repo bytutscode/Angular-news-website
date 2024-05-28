@@ -1,20 +1,40 @@
-import { Component, DoCheck, HostListener } from '@angular/core';
+import { Component, DoCheck, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, catchError, map, of, retry, switchMap, tap } from 'rxjs';
+import { User } from 'src/app/models/User';
+import { Post } from 'src/app/models/post';
 import { NewsService } from 'src/app/services/news.service';
+import { SmallCardComponent } from '../home/small-card/small-card.component';
+import { UserCardComponent } from 'src/app/shared/user-card/user-card.component';
+import { CommonModule } from '@angular/common';
+import { LoaderAnimationComponent } from 'src/app/shared/loader-animation/loader-animation.component';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  standalone:true,
+  imports:[
+    SmallCardComponent,
+    UserCardComponent,
+    CommonModule,
+    LoaderAnimationComponent
+  ]
 })
-export class SearchComponent implements DoCheck {
-  input: string = '';
+export class SearchComponent implements OnInit, DoCheck {
+  input:string | null = '';
   type: string = 'posts';
   results: any[] = [];
+  results$: Observable<(Post | User)[] | any> = of([]);
   pag: number = 1;
+  loading: boolean = true;
+  total: number = 0;
 
   constructor(private api: NewsService, private route: ActivatedRoute, private router: Router) {
-    this.input = route.snapshot.queryParamMap.get('q') as string;
+    
+  }
+  ngOnInit(): void {
+    this.input = this.route.snapshot.queryParamMap.get('q');
     this.search();
   }
 
@@ -33,7 +53,8 @@ export class SearchComponent implements DoCheck {
 
     const windowBottom = windowHeight + window.pageYOffset;
 
-    if (windowBottom >= docHeight) {
+    if (windowBottom >= docHeight && this.results.length < this.total && !this.loading) {
+      console.log('deu')
       this.search(++this.pag)
     }
   }
@@ -44,12 +65,17 @@ export class SearchComponent implements DoCheck {
   }
 
   search(pag?: number): any {
-    if (this.input === '') return
+    this.loading = true;
+    this.input = this.route.snapshot.queryParamMap.get('q');
+    if (!this.input) return
 
-    this.input = this.route.snapshot.queryParamMap.get('q') as string;
-
-    this.api.search(this.input, this.type, pag).subscribe({
-      next: (res: any) => this.results.push(...res.body.results)
-    })
+    return this.results$ = this.api.search(this.input, this.type,pag).pipe(
+      retry(2),
+      map((r:any) =>{
+        this.total = r.total;
+        return this.results.push(...r.results);
+      }),
+      tap(()=>this.loading = false)
+    );
   }
 }

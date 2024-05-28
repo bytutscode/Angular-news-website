@@ -1,11 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-profile-photo',
   templateUrl: './profile-photo.component.html',
-  styleUrls: ['./profile-photo.component.css']
+  styleUrls: ['./profile-photo.component.css'],
+  standalone:true,
+  imports:[
+    CommonModule, PipesModule
+  ]
 })
 export class ProfilePhotoComponent {
   @Input() profilePhoto: string = '';

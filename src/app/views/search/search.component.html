@@ -3,16 +3,24 @@
         <button (click)="type = 'posts'; clear() ;search()" [ngClass]="type == 'posts'?'active':null">Posts</button>
         <button (click)="type = 'users'; clear() ;search()" [ngClass]="type == 'users'?'active':null">Users</button>
     </div>
-    <div class="results-container" *ngIf="results.length > 0 else notFound">
-        <ng-container *ngFor="let result of results">
-            <app-small-card *ngIf="type === 'posts' else users" [post]="result"></app-small-card>
-            <ng-template #users>
-                <app-user-card [user]="result"></app-user-card>
-            </ng-template>
-        </ng-container>
+    <app-loader-animation *ngIf="loading"></app-loader-animation>
+    <div class="results-container">
+            <ng-container *ngIf="results$ | async"></ng-container>
+            <ng-container *ngIf="results.length > 0 else notFound"  >
+                <ng-container *ngFor="let result of results">
+                    <ng-container *ngIf="result">
+                            <app-small-card *ngIf="type === 'posts' else users" [post]="result"></app-small-card>
+                            <ng-template #users>
+                            <app-user-card [user]="result"></app-user-card>
+                            </ng-template>
+                    </ng-container>
+                    
+                </ng-container>
+            </ng-container>
+        
     </div>
 
-    <ng-template #notFound>
-        <h2 class="notFound">We do not found any {{type.slice(0,-1)}} that matches with what you're looking for :(</h2>
+    <ng-template  #notFound >
+        <h2 *ngIf="!loading" class="notFound">We do not found any {{type.slice(0,-1)}} that matches with what you're looking for :(</h2>
     </ng-template>
 </div>

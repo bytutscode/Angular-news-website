@@ -1,4 +1,5 @@
-<div class="home-container">
+<app-loader-animation *ngIf="loading"></app-loader-animation>
+<div *ngIf="!loading" class="home-container">
     <section>
         <div class="articles-container">
 

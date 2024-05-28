@@ -6,8 +6,11 @@
             <p>We'd love to keep the conversation going! Feel free to reach out to us anytime with your thoughts, questions,
                 or just to say hello. You can drop us a line through the contact form below or connect with us on our social
                 media channels. We're always excited to hear from our community and look forward to staying in touch!</p>
-            <input type="email" autocomplete="true" name="email" placeholder="Email">
-            <button type="submit">Enviar</button>
+            <input [(ngModel)]="email" type="email" autocomplete="true" name="email" placeholder="Email">
+            <button *ngIf="!sended" (click)="sendMail()" type="submit">Enviar</button>
+            <ng-container>
+                <p  class="thankyou" [ngClass]="sended?['visible']:''" >Thank you for reaching out! We appreciate your message and will get back to you soon.</p>
+            </ng-container>
         </div>
         <aside>
             <div class="send-email-image">

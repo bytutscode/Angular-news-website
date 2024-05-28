@@ -1,30 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
-import { ArticleComponent } from './views/article/article.component';
-import { ProfileComponent } from './views/profile/profile.component';
-import { SignUpComponent } from './views/sign-up/sign-up.component';
-import { SignInComponent } from './views/sign-in/sign-in.component';
 import { authGuard } from './guards/auth.guard';
-import { UpdateProfileComponent } from './views/profile/update-profile/update-profile.component';
-import { CreatePostComponent } from './views/create-post/create-post.component';
-import { CategoryViewComponent } from './views/category-view/category-view.component';
-import { SearchComponent } from './views/search/search.component';
-import { LoaderAnimationComponent } from './shared/loader-animation/loader-animation.component';
+import { guestGuard } from './guards/guest.guard';
+
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'signup', component: SignUpComponent },
-  { path: 'signin', component: SignInComponent },
-  { path: 'create', component: CreatePostComponent, canActivate: [authGuard] },
-  { path: 'article/:id', component: ArticleComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
-  { path: 'profile/update', component: UpdateProfileComponent, canActivate: [authGuard] },
-  { path: 'profile/:id', component: ProfileComponent },
-  { path: 'category/:category', component: CategoryViewComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'loading', component: LoaderAnimationComponent },
-
+  { path: '', pathMatch:'full', component: HomeComponent },
+  { path: 'signup', loadComponent: ()=> import('../app/views/sign-up/sign-up.component').then(c =>c.SignUpComponent) , canActivate:[guestGuard]},
+  { path: 'signin', loadComponent:()=> import('../app/views/sign-in/sign-in.component').then(c =>c.SignInComponent), canActivate:[guestGuard]  },
+  { path: 'create', loadComponent:()=> import('../app/views/create-post/create-post.component').then(c =>c.CreatePostComponent), canActivate: [authGuard] },
+  { path: 'article/:id', loadComponent:()=> import('../app/views/article/article.component').then(c=>c.ArticleComponent) },
+  { path: 'profile', loadComponent:()=> import('../app/views/profile/profile.component').then(c => c.ProfileComponent), canActivate: [authGuard] },
+  { path: 'profile/update', loadComponent:()=> import('../app/views/profile/update-profile/update-profile.component').then(c=>c.UpdateProfileComponent), canActivate: [authGuard] },
+  { path: 'profile/:id', loadComponent:()=> import('../app/views/profile/profile.component').then(c => c.ProfileComponent) },
+  { path: 'category/:category', loadComponent:()=> import('../app/views/category-view/category-view.component').then(c => c.CategoryViewComponent) },
+  { path: 'search', loadComponent:()=> import('../app/views/search/search.component').then(c => c.SearchComponent) },
+  {path:'**', redirectTo:'', pathMatch:'full'}
 ];
 
 @NgModule({
