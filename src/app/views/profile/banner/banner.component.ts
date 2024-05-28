@@ -28,7 +28,6 @@ export class BannerComponent implements OnDestroy {
     const file: File = event.target.files[0];
     const bannerForm = new FormData();
     bannerForm.append('avatar', file);
-    this.changedBanner.emit(true);
 
     this.subscription = this.api.updateBannerPhoto(bannerForm).subscribe({
       next: () => this.reload(),
@@ -37,10 +36,7 @@ export class BannerComponent implements OnDestroy {
   }
 
   reload() {
-    // this.changedBanner.emit(true);
-    // this.router.navigateByUrl('/loading', { skipLocationChange: true }).then(res => {
-    //   this.router.navigate(['profile'])
-    // })
+    this.changedBanner.emit(true);
   }
 
   ngOnDestroy(): void {

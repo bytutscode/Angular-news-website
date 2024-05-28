@@ -14,6 +14,6 @@ export const guestGuard: CanActivateFn = (route, state) => {
   .pipe(
   map((r)=>{router.navigate(['']) ; return r.status!=200}),
   catchError((error)=>{
-    return of(false)
+    return of(true)
   }));
 };
